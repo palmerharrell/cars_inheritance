@@ -1,32 +1,29 @@
 "use strict";
 
-/*
-  Create a function named Car with one property named `manufactured_date`
- */
+function Car() {
+	this.manufactured_date = Date.now();
+}
 
-/*
-  Create a function named Make. 
-  Set its prototype to the Car function.
-  Define a property `manufacaturer` with a default value of empty string.
- */
+// Adding a method to the Car prototype:
+Car.prototype.changeManufacturedDate = function(newDate) {
+	this.manufactured_date = newDate;
+}
 
+function Make(maker) {
+	this.manufacturer = maker;
+}
+Make.prototype = new Car();
 
+function Honda(name) {
+	this.modelName = name;
+}
+Honda.prototype = new Make("Honda");
 
-/*
-    Create a function named Model. 
-    Set its prototype to the Make function.
-    Define a property `modelName` with a default value of empty string.
-*/
+function Accord() {
+}
+Accord.prototype = new Honda("Accord");
 
-
-/*
-    Create a new Make object - your favorite one (e.g. Mini)
-*/
-
-
-/*
-    Create a new Model object of your favorite model (e.g. Clubman)
-*/
+var accord = new Accord();
 
 /*
     Being an avid car collector, you own three different cars all of
@@ -34,10 +31,13 @@
 
     Create three new objects for each of your three favorite cars.
 */
-
+var accord2 = new Accord();
+var accord3 = new Accord();
+var accord4 = new Accord();
 
 /*
     Being a rich, avid car collector, you own 2 cars from your second
     favorite manufacturer. You also one 1 car from your third favorite
     manufacturer.
 */
+
