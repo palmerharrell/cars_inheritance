@@ -4,6 +4,15 @@ function Vehicle() {
 	this.manufactured_date = Date.now();
 	this.model = null;
 	this.tires = [];
+	this.currentSpeed = 0;
+}
+
+// Adding a method to the Vehicle prototype:
+Vehicle.prototype.accelerateTo = function(speed) {
+	if (speed <= 0 || speed > 300) {
+		return;
+	};
+	this.currentSpeed = speed;
 }
 
 // Car is a Vehicle
@@ -51,10 +60,8 @@ function PExtreme() {}
 PExtreme.prototype = new Pirelli();
 
 
-
-
-var aNewCar = new Car(); // Create an instance of Car
-var myAccord = new Accord(); // Create an instance of Accord
+var myNewCar = new Car(); // Create an instance of Car
+var anAccord = new Accord(); // Create an instance of Accord
 
 var Tire1 = new PExtreme();
 var Tire2 = new PExtreme();
@@ -62,21 +69,10 @@ var Tire3 = new PExtreme();
 var Tire4 = new PExtreme();
 
 // Composition
-aNewCar.model = myAccord;
-aNewCar.tires.push(Tire1, Tire2, Tire3, Tire4);
+myNewCar.model = anAccord;
+myNewCar.tires.push(Tire1, Tire2, Tire3, Tire4);
 
-console.log("aNewCar: ", aNewCar);
+console.log("myNewCar: ", myNewCar);
 
 
-// Create three new objects for each of your three favorite cars.
-
-var myAccord2 = new Accord();
-var myAccord3 = new Accord();
-var myAccord4 = new Accord();
-
-/*
-    Being a rich, avid car collector, you own 2 cars from your second
-    favorite manufacturer. You also one 1 car from your third favorite
-    manufacturer.
-*/
 
